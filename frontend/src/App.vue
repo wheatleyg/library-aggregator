@@ -4,104 +4,57 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/fchs_logo_cirlce.png"/>
+  <v-app>
+    <!-- Header Bar -->
+    <v-app-bar color="white" elevation="1" height="90">
+      <!-- Logo with standard margin -->
+      <v-img src="/fchs_logo_cirlce.png" max-height="80" width="80" eager contain class="ml-4" />
 
-    <div class="wrapper">
-      <ul class="nav-list">
-      <li><h1>Location</h1></li>
-        <li><h1>About</h1></li>
-        <li><h1>Help</h1></li>
+      <!--
+        1. 'mx-4' applies both left and right margin to the blue bar so it's symmetrical.
+        2. 'px-2' replaces the default internal padding to keep content inside the blue bar.
+      -->
+      <v-toolbar color="#92CBFF" height="50" flat class="mx-4 px-2 rounded-pill align-center">
 
-      </ul>
-      <h2 style="margin-left: 40px; font-style: italic; font-size: 16px"> Admin</h2>
-      <input style="margin-left:65px; height:65%; font-size: 18px" type="text" placeholder="Search. . . ">
+        <!-- Navigation Buttons with 'px-1' to tighten space between them -->
+        <v-btn variant="text" class="px-1" min-width="auto">Location</v-btn>
+        <v-btn variant="text" class="px-1" min-width="auto">About</v-btn>
+        <v-btn variant="text" class="px-1" min-width="auto">Help</v-btn>
 
-    </div>
-  </header>
+        <v-spacer></v-spacer>
+
+        <div class="d-flex align-center">
+          <!-- Admin button pulled closer to input -->
+          <v-btn variant="text" class="px-1" min-width="auto">Admin</v-btn>
+
+          <!--
+            1. Fixed 'width' (not max-width) prevents scaling issues.
+            2. 'mr-1' ensures a tiny gap so the search bar doesn't touch the very edge.
+          -->
+          <v-text-field
+              density="compact"
+              variant="solo"
+              label="Search..."
+              single-line
+              hide-details
+              class="ml-1 mr-3"
+              style="width: 170px;"
+          ></v-text-field>
+        </div>
+      </v-toolbar>
+    </v-app-bar>
 
 
-  <main>
 
-
-          </main>
+    <!-- Main Content Area -->
+    <v-main>
+      <v-container>
+        <p>Hello, world!</p>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  background-color: white;
-  width: 100%;
-  height: 90px;
-  display: flex;
-  align-items: center;
-}
-.wrapper {
-  background-color: #92CBFF;
-  width: 100%;
-  margin-left:-20px;
-  padding-left: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
 
-
-}
-.header-content {
-  margin-left: 20px;
-}
-.nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li {
-  display: flex;
-  align-items: center;
-  margin: 0 20px 0 0;
-
-}
-
-.nav-list li::after {
-  content: "";
-  width: 18px;
-  height: 18px;
-  background-image: url("./assets/header_icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-right: 2px;
-  margin-left: 2px;
-  margin-top: 8px;
-
-}
-
-
-.logo {
-  float: left;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
