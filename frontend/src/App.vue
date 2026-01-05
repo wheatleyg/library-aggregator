@@ -15,14 +15,15 @@ import TheWelcome from './components/TheWelcome.vue'
 
       </ul>
       <h2 style="margin-left: 40px; font-style: italic; font-size: 16px"> Admin</h2>
-      <input style="margin-left:65px; height:65%; font-size: 18px" type="text" value="Search. . . ">
+      <input style="margin-left:65px; height:65%; font-size: 18px" type="text" placeholder="Search. . . ">
 
     </div>
   </header>
 
 
   <main>
-    <TheWelcome />
+
+
           </main>
 </template>
 
