@@ -43,6 +43,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
           ></v-text-field>
         </div>
+
       </v-toolbar>
     </v-app-bar>
 
@@ -52,11 +53,13 @@ import TheWelcome from './components/TheWelcome.vue'
     <v-main>
       <v-container>
         <p>Sample text</p>
+        <div class="container">
+          <img src="https://prodimage.images-bn.com/pimages/9780545452397_p0_v2_s600x595.jpg">
+        </div>
       </v-container>
     </v-main>
   </v-app>
 </template>
-
 <style scoped>
 
 </style>
