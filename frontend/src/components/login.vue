@@ -1,8 +1,6 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import login from './components/login.vue'
-import TheWelcome from './components/TheWelcome.vue'
-
+import HelloWorld from './HelloWorld.vue'
+import TheWelcome from './TheWelcome.vue'
 </script>
 
 <template>
@@ -45,7 +43,6 @@ import TheWelcome from './components/TheWelcome.vue'
 
           ></v-text-field>
         </div>
-
       </v-toolbar>
     </v-app-bar>
 
@@ -54,19 +51,21 @@ import TheWelcome from './components/TheWelcome.vue'
     <!-- Main Content Area -->
     <v-main>
       <v-container>
-<<<<<<< HEAD
-        
-=======
-        <p>Sample text</p>
-        <div class="container">
-          <img src="https://prodimage.images-bn.com/pimages/9780545452397_p0_v2_s600x595.jpg">
-        </div>
->>>>>>> 436af1913b9aba006e0e6d53cdf981543b4aebe3
+        <dev class="text-center">
+          <h1 class="loginpg">Login page</h1>
+          
+        </dev>
+
       </v-container>
     </v-main>
   </v-app>
 </template>
+
 <style scoped>
-
+.loginpg{
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  translate: -38px 270px;
+}
 </style>
-
