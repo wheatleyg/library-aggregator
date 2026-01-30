@@ -12,7 +12,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import '@mdi/font/css/materialdesignicons.css'
 
 
-import router from './router'
+import router from './router/index.js'
 
 
 const vuetify = createVuetify({

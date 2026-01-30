@@ -7,7 +7,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
 <template>
   <v-app>
-    <login />
+
 
 
     <!-- Main Content Area -->

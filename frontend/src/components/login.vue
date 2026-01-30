@@ -1,67 +1,20 @@
 <script setup>
-import HelloWorld from './HelloWorld.vue'
-import TheWelcome from './TheWelcome.vue'
 </script>
 
 <template>
-  <v-app>
+  <div>
     <!-- Header Bar -->
-    <v-app-bar color="white" elevation="1" height="90">
-      <!-- Logo with standard margin -->
-      <div style="background-color: #92CBFF; height: 50px; z-index: 2;"  class="rounded-pill align-center d-flex ml-2 mr-n10 " >
-      <v-img src="/fchs_logo_cirlce.png" max-height="80" width="80" eager contain class="mr-4 ml-0" />
-      </div>
-      <!--
-        1. 'mx-4' applies both left and right margin to the blue bar so it's symmetrical.
-        2. 'px-2' replaces the default internal padding to keep content inside the blue bar.
-      -->
-      <v-toolbar color="#92CBFF" height="50" flat class="mr-4 ml-0 px-2 rounded-pill align-center flex-grow-1" style="max-width: calc(100vw - 90px);">
-
-        <!-- Navigation Buttons with 'px-1' to tighten space between them -->
-        <v-btn variant="text" class="px-1 mx-2 ml-8" min-width="auto">Location</v-btn>
-        <v-btn variant="text" class="px-1 mx-2" min-width="auto">About</v-btn>
-        <v-btn variant="text" class="px-1 mx-2" min-width="auto">Help</v-btn>
-
-        <v-spacer></v-spacer>
-
-        <div class="d-flex align-center">
-          <!-- Admin button pulled closer to input -->
-          <v-btn variant="text" class="px-1 mx-8" min-width="auto">Admin</v-btn>
-
-          <!--
-            1. Fixed 'width' (not max-width) prevents scaling issues.
-            2. 'mr-1' ensures a tiny gap so the search bar doesn't touch the very edge.
-          -->
-          <v-text-field
-              density="compact"
-              variant="solo"
-              label="Your search here. . .  "
-              single-line
-              hide-details
-              class="mr-10 ml-8 text-body-2 flex-grow-1"
-              style="width: 220px;"
-
-          ></v-text-field>
-        </div>
-      </v-toolbar>
-    </v-app-bar>
-
 
 
     <!-- Main Content Area -->
-    <v-main>
-      <v-container>
-        <dev class="text-center">
-          <h1 class="loginPG">Login page</h1>
-          <h1 class="loginUN">enter user name</h1>
-          <h1 class="loginPW">enter password</h1>
-          <h1 class="loginCI">comfirm inputs</h1>
-          <h4 class="loginH">help</h4>
-        </dev>
-
-      </v-container>
-    </v-main>
-  </v-app>
+    <v-container class="text-center">
+      <h1 class="loginpg">Login page</h1>
+      <h2 class="loginSub">Enter username</h2>
+      <h2 class="loginSub">Enter password</h2>
+      <h2 class="loginSub">Confirm inputs</h2>
+      <p class="loginHelp">Help</p>
+    </v-container>
+  </div>
 </template>
 
 <style scoped>
@@ -69,6 +22,14 @@ import TheWelcome from './TheWelcome.vue'
   font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
-  translate: -38px 270px;
+  transform: translate(-38px, 270px);
+}
+
+.loginSub {
+  margin-top: 12px;
+}
+
+.loginHelp {
+  margin-top: 16px;
 }
 </style>
