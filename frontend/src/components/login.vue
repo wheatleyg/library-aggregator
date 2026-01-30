@@ -52,8 +52,11 @@ import TheWelcome from './TheWelcome.vue'
     <v-main>
       <v-container>
         <dev class="text-center">
-          <h1 class="loginpg">Login page</h1>
-          
+          <h1 class="loginPG">Login page</h1>
+          <h1 class="loginUN">enter user name</h1>
+          <h1 class="loginPW">enter password</h1>
+          <h1 class="loginCI">comfirm inputs</h1>
+          <h4 class="loginH">help</h4>
         </dev>
 
       </v-container>
