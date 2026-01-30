@@ -54,19 +54,32 @@ import TheWelcome from './components/TheWelcome.vue'
     <!-- Main Content Area -->
     <v-main>
       <v-container>
-<<<<<<< HEAD
         
-=======
-        <p>Sample text</p>
-        <div class="container">
-          <img src="https://prodimage.images-bn.com/pimages/9780545452397_p0_v2_s600x595.jpg">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3">
+              <p>Sample text</p>
+              <a href="#">
+                <img src="https://prodimage.images-bn.com/pimages/9780545452397_p0_v2_s600x595.jpg" alt="Hunger Games">
+              </a>
+            </div>
+            <div class="col-sm-3">
+              <p>Sample text</p>
+              <a href="#">
+                <img src="https://prodimage.images-bn.com/pimages/9780545452397_p0_v2_s600x595.jpg" alt="Hunger Games">
+              </a>
+            </div>
+          </div> 
         </div>
->>>>>>> 436af1913b9aba006e0e6d53cdf981543b4aebe3
       </v-container>
     </v-main>
   </v-app>
 </template>
 <style scoped>
-
+img{
+  width:400px;
+  height:300px;
+  margin:5px;
+}
 </style>
 
