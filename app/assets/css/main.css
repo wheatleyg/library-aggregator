@@ -4,6 +4,7 @@
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 
+  /* Green shades (existing) */
   --color-green-50: #EFFDF5;
   --color-green-100: #D9FBE8;
   --color-green-200: #B3F5D1;
@@ -15,4 +16,17 @@
   --color-green-800: #016538;
   --color-green-900: #0A5331;
   --color-green-950: #052E16;
+
+  /* Blue shades (custom #0627cb) */
+  --color-blue-50:  #E5E8FF;
+  --color-blue-100: #BCC5FF;
+  --color-blue-200: #8FA1FF;
+  --color-blue-300: #6480FF;
+  --color-blue-400: #3960FF;
+  --color-blue-500: #0627CB; /* main blue */
+  --color-blue-600: #051FB2;
+  --color-blue-700: #041891;
+  --color-blue-800: #031270;
+  --color-blue-900: #020E55;
+  --color-blue-950: #010A33;
 }

@@ -1,49 +1,34 @@
 <template>
-  <UDropdownMenu
-    v-slot="{ open }"
-    :modal="false"
-    :items="[{
-      label: 'Starter',
-      to: 'https://starter-template.nuxt.dev/',
-      color: 'primary',
-      checked: true,
-      type: 'checkbox'
-    }, {
-      label: 'Landing',
-      to: 'https://landing-template.nuxt.dev/'
-    }, {
-      label: 'Docs',
-      to: 'https://docs-template.nuxt.dev/'
-    }, {
-      label: 'SaaS',
-      to: 'https://saas-template.nuxt.dev/'
-    }, {
-      label: 'Dashboard',
-      to: 'https://dashboard-template.nuxt.dev/'
-    }, {
-      label: 'Chat',
-      to: 'https://chat-template.nuxt.dev/'
-    }, {
-      label: 'Portfolio',
-      to: 'https://portfolio-template.nuxt.dev/'
-    }, {
-      label: 'Changelog',
-      to: 'https://changelog-template.nuxt.dev/'
-    }]"
-    :content="{ align: 'start' }"
-    :ui="{ content: 'min-w-fit' }"
-    size="xs"
-  >
-    <UButton
-      label="Starter"
-      variant="subtle"
-      trailing-icon="i-lucide-chevron-down"
-      size="xs"
-      class="-mb-[6px] font-semibold rounded-full truncate"
-      :class="[open && 'bg-primary/15']"
-      :ui="{
-        trailingIcon: ['transition-transform duration-200', open ? 'rotate-180' : undefined].filter(Boolean).join(' ')
-      }"
-    />
-  </UDropdownMenu>
+  <header class="  px-4 py-2 flex items-center">
+    <!-- Logo / Title -->
+    <h1 class="text-lg font-bold mr-6">FCHS Library</h1>
+
+    <!-- Navigation buttons -->
+    <nav class="flex gap-3">
+      <UButton
+        label="Home"
+        variant="subtle"
+        size="sm"
+        :to="'/'"
+      />
+      <UButton
+        label="Catalog"
+        variant="subtle"
+        size="sm"
+        :to="'/catalog'"
+      />
+      <UButton
+        label="Events"
+        variant="subtle"
+        size="sm"
+        :to="'/events'"
+      />
+      <UButton
+        label="Contact"
+        variant="subtle"
+        size="sm"
+        :to="'/contact'"
+      />
+    </nav>
+  </header>
 </template>

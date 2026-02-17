@@ -19,6 +19,7 @@
         variant: 'subtle'
       }]"
     />
+    <UDashboardNavbar />
 
     <UPageSection
       id="features"
