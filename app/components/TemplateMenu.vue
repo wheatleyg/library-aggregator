@@ -7,25 +7,25 @@
     <nav class="flex gap-3">
       <UButton
         label="Home"
-        variant="subtle"
+        variant="solid"
         size="sm"
         :to="'/'"
       />
       <UButton
         label="Catalog"
-        variant="subtle"
+        variant="solid"
         size="sm"
         :to="'/catalog'"
       />
       <UButton
         label="Events"
-        variant="subtle"
+        variant="solid"
         size="sm"
         :to="'/events'"
       />
       <UButton
         label="Contact"
-        variant="subtle"
+        variant="solid"
         size="sm"
         :to="'/contact'"
       />

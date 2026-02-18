@@ -23,6 +23,9 @@ useSeoMeta({
   twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
   twitterCard: 'summary_large_image'
 })
+const page = ref(1)
+const total = 670
+const countPerPage = 10
 </script>
 
 <template>
@@ -53,13 +56,25 @@ useSeoMeta({
     <UMain>
       <NuxtPage />
     </UMain>
+    <template>
+      <div class="flex-col justify-center mt-6">
+        <UPagination
+          v-model="page"
+          :total="total"
+          :page-count="countPerPage"
+        />
 
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
+        <p class="mt-2 text-center text-xs text-muted">
+          Count per page: {{countPerPage}}
+        </p>
+      </div>
+    </template>
+    <USeparator />
 
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+          Made by WebDev Class | gwheatley@ftstudent.org
         </p>
       </template>
 
