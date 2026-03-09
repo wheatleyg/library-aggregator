@@ -118,6 +118,7 @@ onMounted(() => {
           Made by WebDev Class | gwheatley@ftstudent.org
         </p>
       </template>
+      <BookTemplate />
 
       <template #right>
         <UButton
