@@ -1,11 +1,19 @@
-export default defineEventHandler(() => {
-  const books = Array.from({ length: 50 }, (_, i) => ({
-    id: i + 1,
-    title: `Book ${i + 1}`,
-    imageUrl: 'https://picsum.photos/200/300'
-  }))
-  return {
-    books
+import { prisma } from '~~/lib/prisma'
 
-  }
+export default defineEventHandler(async () => {
+  const books = await prisma.book.findMany({
+    select: {
+      id: true,
+      title: true,
+      image: true,
+      authorFirstName: true,
+      authorLastName: true
+    }
+  })
+  return books.map(book => ({
+    id: book.id,
+    title: book.title,
+    imageUrl: book.image,
+    authorName: book.authorFirstName + ' ' + book.authorLastName
+  }))
 })

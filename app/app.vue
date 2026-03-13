@@ -34,7 +34,7 @@ const totalItems = computed(() => bookData.value?.books?.length || 0)
 const paginatedBooks = computed(() => {
   const start = (page.value - 1) * itemsPerPage
   const end = start + itemsPerPage
-  return bookData.value.books.slice(start,end)
+  return (bookData.value ?? []).slice(start, end)
 })
 const message = ref(null)
 async function ping() {
@@ -89,6 +89,7 @@ onMounted(() => {
             class="flex flex-col items-center"
             :image="book.imageUrl"
             :label="book.title"
+            :author="book.authorName"
           />
         </div>
 
@@ -116,7 +117,6 @@ onMounted(() => {
           Made by WebDev Class | gwheatley@ftstudent.org
         </p>
       </template>
-      <BookTemplate />
 
       <template #right>
         <UButton
