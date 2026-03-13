@@ -19,14 +19,17 @@ useSeoMeta({
 })
 
 const page = ref(1)
-const itemsPerPage = 10
+const itemsPerPage = 12
 
 const books = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   title: `Book ${i + 1}`
 }))
 
-const totalItems = books.length
+const { data: bookData } = await useFetch('/api/books')
+console.log(bookData)
+
+const totalItems = computed(() => bookData.value?.books?.length || 0)
 
 const paginatedBooks = computed(() => {
   const start = (page.value - 1) * itemsPerPage
@@ -76,38 +79,32 @@ onMounted(() => {
         {{ message }}
       </p>
       <NuxtPage />
-
-      <!-- Books grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
-        <div
-          v-for="book in paginatedBooks"
-          :key="book.id"
-          class="flex flex-col items-center"
-        >
-          <img
-            src="https://placehold.co/128x192/red/black"
-            :alt="book.title"
-            class="rounded-3xl w-full"
-          >
-          <p class="mt-1 text-sm text-center">
-            {{ book.title }}
-          </p>
+      <template v-if="bookData">
+        <!-- Books grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
+          <BookTemplate
+            v-for="book in bookData.books"
+            :key="book.id"
+            class="flex flex-col items-center"
+            :image="book.imageUrl"
+            :label="book.title"
+          />
         </div>
-      </div>
 
-      <!-- Centered pagination -->
-      <div class="flex justify-center mt-6">
-        <UPagination
-          v-model:page="page"
-          :total="totalItems"
-          :items-per-page="itemsPerPage"
-          show-edges
-        />
-      </div>
+        <!-- Centered pagination -->
+        <div class="flex justify-center mt-6">
+          <UPagination
+            v-model:page="page"
+            :total="totalItems"
+            :items-per-page="itemsPerPage"
+            show-edges
+          />
+        </div>
 
-      <p class="mt-2 text-center text-xs text-muted">
-        Items per page: {{ itemsPerPage }}
-      </p>
+        <p class="mt-2 text-center text-xs text-muted">
+          Items per page: {{ itemsPerPage }}
+        </p>
+      </template>
     </UMain>
 
     <USeparator />

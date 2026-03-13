@@ -1,7 +1,9 @@
 <template>
   <header class="  px-4 py-2 flex items-center">
     <!-- Logo / Title -->
-    <h1 class="text-lg font-bold mr-6">FCHS Library</h1>
+    <h1 class="text-lg font-bold mr-6">
+      FCHS Library
+    </h1>
 
     <!-- Navigation buttons -->
     <nav class="flex gap-3">

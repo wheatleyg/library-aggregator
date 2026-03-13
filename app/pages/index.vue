@@ -72,8 +72,6 @@
           variant: 'outline'
         }]"
       />
-
     </UPageSection>
-
   </div>
 </template>

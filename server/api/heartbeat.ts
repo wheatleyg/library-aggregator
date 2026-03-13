@@ -1,7 +1,7 @@
 export default defineEventHandler(() => {
   return {
-    name: "hi",
+    name: 'hi',
     timestamp: Date.now(),
-    message: "pong"
+    message: 'pong'
   }
 })
