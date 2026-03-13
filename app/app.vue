@@ -33,7 +33,8 @@ const totalItems = computed(() => bookData.value?.books?.length || 0)
 
 const paginatedBooks = computed(() => {
   const start = (page.value - 1) * itemsPerPage
-  return books.slice(start, start + itemsPerPage)
+  const end = start + itemsPerPage
+  return bookData.value.books.slice(start,end)
 })
 const message = ref(null)
 async function ping() {
@@ -83,7 +84,7 @@ onMounted(() => {
         <!-- Books grid -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
           <BookTemplate
-            v-for="book in bookData.books"
+            v-for="book in paginatedBooks"
             :key="book.id"
             class="flex flex-col items-center"
             :image="book.imageUrl"
