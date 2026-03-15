@@ -2,10 +2,12 @@
   <div>
     <NuxtImg
       :src="image"
-      alt="f"
+      :alt="label"
       class="rounded-3xl w-full"
       width="350"
       height="400"
+      loading="lazy"
+      placeholder
       fit="cover"
     />
     <p class="mt-1 text-sm text-center">

@@ -9,16 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
 }
 
 model Book {
-  id              Int      @id @default(autoincrement())
-  title           String
-  image           String
-  authorFirstName String
-  authorLastName  String
-  ISBN_13         String   @unique
-  publish_date    DateTime
-  genre           String
+  id         Int      @id @default(autoincrement())
+  callNumber String
+  title      String
+  author     String?
+  isbn       String?
+  lccn       String?
+  image      String?
+  createdAt  DateTime @default(now())
+
+  @@unique([callNumber, title])
 }

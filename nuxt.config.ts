@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true }
   },
+  devServer: {
+    https: true
+  },
 
   compatibilityDate: '2025-01-15',
 

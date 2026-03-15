@@ -26,16 +26,13 @@ const books = Array.from({ length: 50 }, (_, i) => ({
   title: `Book ${i + 1}`
 }))
 
-const { data: bookData } = await useFetch('/api/books')
-console.log(bookData)
-
-const totalItems = computed(() => bookData.value?.books?.length || 0)
-
-const paginatedBooks = computed(() => {
-  const start = (page.value - 1) * itemsPerPage
-  const end = start + itemsPerPage
-  return (bookData.value ?? []).slice(start, end)
+const { data: bookData, status } = await useLazyFetch('/api/books', {
+  query: { page, limit: itemsPerPage },
+  watch: [page]
 })
+
+const totalItems = computed(() => bookData.value?.total || 0)
+const paginatedBooks = computed(() => bookData.value?.books ?? [])
 const message = ref(null)
 async function ping() {
   const data = await $fetch('/api/heartbeat')
@@ -80,7 +77,20 @@ onMounted(() => {
         {{ message }}
       </p>
       <NuxtPage />
-      <template v-if="bookData">
+      <template v-if="status === 'pending'">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
+          <div
+            v-for="i in itemsPerPage"
+            :key="i"
+            class="flex flex-col items-center animate-pulse"
+          >
+            <div class="rounded-3xl bg-muted w-full h-[300px]" />
+            <div class="mt-1 h-4 bg-muted rounded w-3/4" />
+          </div>
+        </div>
+      </template>
+
+      <template v-else-if="bookData">
         <!-- Books grid -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
           <BookTemplate
@@ -89,7 +99,7 @@ onMounted(() => {
             class="flex flex-col items-center"
             :image="book.imageUrl"
             :label="book.title"
-            :author="book.authorName"
+            :author="book.author"
           />
         </div>
 

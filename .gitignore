@@ -24,3 +24,8 @@ logs
 !.env.example
 
 /app/generated/prisma
+/python/books.csv
+/public/covers
+/prisma/review.csv
+/prisma/seed.json
+dev.db
