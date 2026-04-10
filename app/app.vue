@@ -5,44 +5,11 @@ useHead({
   htmlAttrs: { lang: 'en' }
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI...'
-
 useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
-})
-
-const page = ref(1)
-const itemsPerPage = 12
-
-const books = Array.from({ length: 50 }, (_, i) => ({
-  id: i + 1,
-  title: `Book ${i + 1}`
-}))
-
-const { data: bookData, status } = await useLazyFetch('/api/books', {
-  query: { page, limit: itemsPerPage },
-  watch: [page]
-})
-
-const totalItems = computed(() => bookData.value?.total || 0)
-const paginatedBooks = computed(() => bookData.value?.books ?? [])
-const message = ref(null)
-async function ping() {
-  const data = await $fetch('/api/heartbeat')
-  message.value = data.message
-  console.log(message.value)
-}
-onMounted(() => {
-  ping()
-  const interval = setInterval(ping, 1000 * 10)
-  onUnmounted(() => clearInterval(interval))
+  title: 'FC Library',
+  description: 'Franklin Central High School Library — search the catalog, discover popular books, and more.',
+  ogTitle: 'FC Library',
+  ogDescription: 'Franklin Central High School Library — search the catalog, discover popular books, and more.'
 })
 </script>
 
@@ -50,73 +17,65 @@ onMounted(() => {
   <UApp>
     <UHeader>
       <template #left>
-        <NuxtLink to="/">
+        <NuxtLink to="/" class="flex items-center gap-2">
           <AppLogo class="w-auto h-6 shrink-0" />
+          <span class="font-bold text-sm hidden sm:block">FC Library</span>
         </NuxtLink>
-        <TemplateMenu />
+        <nav class="hidden md:flex items-center gap-1 ml-4">
+          <UButton
+            to="/"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            label="Home"
+          />
+          <UButton
+            to="/catalog"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            label="Catalog"
+          />
+          <UButton
+            to="/series"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            label="Series"
+          />
+          <UButton
+            to="/events"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            label="Events"
+          />
+          <UButton
+            to="/contact"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            label="Contact"
+          />
+        </nav>
       </template>
 
       <template #right>
         <UColorModeButton />
         <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
+          to="/admin"
+          icon="i-lucide-lock"
           variant="ghost"
+          color="neutral"
+          size="sm"
+          aria-label="Admin"
+          class="opacity-30 hover:opacity-100 transition-opacity"
         />
       </template>
     </UHeader>
 
     <UMain>
-      <UButton @click="ping">
-        Ping
-      </UButton>
-      <p v-if="message">
-        {{ message }}
-      </p>
       <NuxtPage />
-      <template v-if="status === 'pending'">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
-          <div
-            v-for="i in itemsPerPage"
-            :key="i"
-            class="flex flex-col items-center animate-pulse"
-          >
-            <div class="rounded-3xl bg-muted w-full h-[300px]" />
-            <div class="mt-1 h-4 bg-muted rounded w-3/4" />
-          </div>
-        </div>
-      </template>
-
-      <template v-else-if="bookData">
-        <!-- Books grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
-          <BookTemplate
-            v-for="book in paginatedBooks"
-            :key="book.id"
-            class="flex flex-col items-center"
-            :image="book.imageUrl"
-            :label="book.title"
-            :author="book.author"
-          />
-        </div>
-
-        <!-- Centered pagination -->
-        <div class="flex justify-center mt-6">
-          <UPagination
-            v-model:page="page"
-            :total="totalItems"
-            :items-per-page="itemsPerPage"
-            show-edges
-          />
-        </div>
-
-        <p class="mt-2 text-center text-xs text-muted">
-          Items per page: {{ itemsPerPage }}
-        </p>
-      </template>
     </UMain>
 
     <USeparator />
@@ -124,19 +83,11 @@ onMounted(() => {
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          Made by WebDev Class | gwheatley@ftstudent.org
+          Franklin Central High School Library &middot; <a href="mailto:gwheatley@ftstudent.org" class="hover:text-primary transition-colors">Contact Us</a>
         </p>
       </template>
-
       <template #right>
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
+        <UColorModeButton size="sm" />
       </template>
     </UFooter>
   </UApp>

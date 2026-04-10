@@ -9,7 +9,7 @@ INPUT_CSV = "books.csv"
 SEED_JSON = "../prisma/seed.json"
 REVIEW_CSV = "../prisma/review.csv"
 COVERS_DIR = "../public/covers"
-MAX_ENTRIES = 100
+MAX_ENTRIES = 40
 
 os.makedirs(COVERS_DIR, exist_ok=True)
 
