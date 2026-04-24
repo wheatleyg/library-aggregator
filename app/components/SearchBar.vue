@@ -11,7 +11,7 @@ function search() {
 
 <template>
   <form
-    class="flex w-full max-w-2xl gap-2"
+    class="surface-card flex w-full max-w-2xl gap-2 p-2"
     @submit.prevent="search"
   >
     <UInput
@@ -20,13 +20,13 @@ function search() {
       placeholder="Search by title, author, or ISBN..."
       icon="i-lucide-search"
       class="flex-1"
-      :ui="{ base: 'rounded-xl' }"
+      :ui="{ base: 'rounded-lg' }"
     />
     <UButton
       type="submit"
       size="xl"
       label="Search"
-      class="rounded-xl px-6 font-semibold"
+      class="rounded-lg px-6 font-semibold"
     />
   </form>
 </template>

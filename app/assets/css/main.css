@@ -30,3 +30,51 @@
   --color-blue-900: #020E55;
   --color-blue-950: #010A33;
 }
+
+:root {
+  --page-max-width: 80rem;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% -10%, color-mix(in srgb, var(--color-blue-500) 10%, transparent), transparent 40%),
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-green-400) 10%, transparent), transparent 35%),
+    var(--ui-bg);
+  color: var(--ui-text);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 5% -20%, color-mix(in srgb, var(--color-blue-400) 20%, transparent), transparent 45%),
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-green-400) 12%, transparent), transparent 35%),
+    var(--ui-bg);
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+.app-shell-header {
+  backdrop-filter: blur(10px);
+  background-color: color-mix(in srgb, var(--ui-bg-elevated) 88%, transparent);
+  border-bottom: 1px solid var(--ui-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.app-shell-main {
+  min-height: calc(100vh - 7.75rem);
+}
+
+.app-shell-footer {
+  border-top: 1px solid var(--ui-border);
+  background-color: color-mix(in srgb, var(--ui-bg-elevated) 92%, transparent);
+}
+
+.surface-card {
+  border: 1px solid var(--ui-border);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ui-bg-elevated) 92%, transparent);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--ui-bg-inverted) 5%, transparent);
+}

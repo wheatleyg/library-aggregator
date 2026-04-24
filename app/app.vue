@@ -15,13 +15,13 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <UHeader>
+    <UHeader class="app-shell-header">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2">
           <AppLogo class="w-auto h-6 shrink-0" />
           <span class="font-bold text-sm hidden sm:block">FC Library</span>
         </NuxtLink>
-        <nav class="hidden md:flex items-center gap-1 ml-4">
+        <nav class="hidden lg:flex items-center gap-1 ml-4">
           <UButton
             to="/"
             variant="ghost"
@@ -61,6 +61,10 @@ useSeoMeta({
       </template>
 
       <template #right>
+        <div class="hidden md:flex items-center gap-1">
+          <UButton to="/catalog" variant="ghost" color="neutral" size="sm" label="Catalog" />
+          <UButton to="/series" variant="ghost" color="neutral" size="sm" label="Series" />
+        </div>
         <UColorModeButton />
         <UButton
           to="/admin"
@@ -74,13 +78,11 @@ useSeoMeta({
       </template>
     </UHeader>
 
-    <UMain>
+    <UMain class="app-shell-main">
       <NuxtPage />
     </UMain>
 
-    <USeparator />
-
-    <UFooter>
+    <UFooter class="app-shell-footer">
       <template #left>
         <p class="text-sm text-muted">
           Franklin Central High School Library &middot; <a href="mailto:gwheatley@ftstudent.org" class="hover:text-primary transition-colors">Contact Us</a>
