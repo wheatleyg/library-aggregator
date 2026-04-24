@@ -24,13 +24,13 @@ async function login() {
 </script>
 
 <template>
-  <div class="min-h-screen admin-fazbear-bg flex items-center justify-center px-4">
+  <div class="min-h-screen bg-default flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
       <div class="flex justify-center mb-6">
         <AppLogo class="h-10 w-auto" />
       </div>
 
-      <div class="rounded-2xl border border-default bg-elevated p-8 shadow-lg">
+      <div class="rounded-2xl border border-default bg-elevated p-8 shadow-lg backdrop-blur">
         <h1 class="text-xl font-bold text-center mb-1">
           Admin Login
         </h1>
@@ -75,6 +75,7 @@ async function login() {
             :loading="loading"
             block
             size="lg"
+            icon="i-lucide-log-in"
           />
         </form>
       </div>

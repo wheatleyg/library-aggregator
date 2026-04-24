@@ -96,9 +96,9 @@ async function logout() {
 </script>
 
 <template>
-  <div class="min-h-screen admin-fazbear-bg">
+  <div class="min-h-screen bg-default">
     <!-- Admin header -->
-    <header class="border-b border-default bg-elevated px-6 py-4 flex items-center justify-between">
+    <header class="border-b border-default bg-elevated/95 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-30">
       <div class="flex items-center gap-3">
         <AppLogo class="h-6 w-auto" />
         <span class="text-sm font-semibold text-muted">Admin Dashboard</span>
@@ -112,16 +112,16 @@ async function logout() {
     <div class="mx-auto max-w-6xl px-6 py-8">
       <!-- Stats -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-        <div class="rounded-2xl border border-default bg-elevated p-5">
-          <p class="text-sm text-muted mb-1">Total Books</p>
+        <div class="rounded-2xl border border-default bg-elevated p-5 shadow-sm">
+          <p class="text-sm text-muted mb-1 flex items-center gap-1"><UIcon name="i-lucide-book-open" /> Total Books</p>
           <p class="text-3xl font-bold">{{ stats?.totalBooks ?? '—' }}</p>
         </div>
-        <div class="rounded-2xl border border-default bg-elevated p-5">
-          <p class="text-sm text-muted mb-1">Total Views</p>
+        <div class="rounded-2xl border border-default bg-elevated p-5 shadow-sm">
+          <p class="text-sm text-muted mb-1 flex items-center gap-1"><UIcon name="i-lucide-eye" /> Total Views</p>
           <p class="text-3xl font-bold">{{ stats?.totalViews ?? '—' }}</p>
         </div>
-        <div class="rounded-2xl border border-default bg-elevated p-5">
-          <p class="text-sm text-muted mb-1">Needs Enrichment</p>
+        <div class="rounded-2xl border border-default bg-elevated p-5 shadow-sm">
+          <p class="text-sm text-muted mb-1 flex items-center gap-1"><UIcon name="i-lucide-sparkles" /> Needs Enrichment</p>
           <p class="text-3xl font-bold" :class="stats?.unenriched ? 'text-orange-500' : ''">
             {{ stats?.unenriched ?? '—' }}
           </p>
@@ -132,16 +132,16 @@ async function logout() {
       <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
         <h2 class="text-lg font-semibold">Books</h2>
         <div class="flex items-center gap-2">
-          <UInput v-model="search" placeholder="Filter..." icon="i-lucide-search" size="sm" class="w-52" />
+          <UInput v-model="search" placeholder="Filter books..." icon="i-lucide-search" size="sm" class="w-56" />
           <UButton to="/admin/series" variant="outline" color="neutral" size="sm" label="Series" icon="i-lucide-layers" />
           <UButton size="sm" label="Add Book" icon="i-lucide-plus" @click="openCreate" />
         </div>
       </div>
 
       <!-- Book table -->
-      <div class="rounded-2xl border border-default overflow-x-auto">
+      <div class="rounded-2xl border border-default overflow-x-auto shadow-sm bg-default">
         <table class="w-full text-sm">
-          <thead class="bg-elevated border-b border-default">
+          <thead class="bg-elevated border-b border-default sticky top-[69px] z-20">
             <tr>
               <th class="text-left px-4 py-3 font-medium text-muted">Book</th>
               <th class="text-left px-4 py-3 font-medium text-muted hidden lg:table-cell">Series</th>
@@ -156,7 +156,7 @@ async function logout() {
             <tr
               v-for="book in filteredBooks"
               :key="book.id"
-              class="border-b border-default last:border-0 hover:bg-elevated/50 transition-colors"
+              class="border-b border-default last:border-0 hover:bg-elevated/60 transition-colors"
             >
               <td class="px-4 py-3">
                 <div class="flex items-center gap-3">
@@ -170,7 +170,7 @@ async function logout() {
                     <UIcon name="i-lucide-book" class="text-xs text-muted-foreground" />
                   </div>
                   <div class="min-w-0">
-                    <p class="font-medium truncate max-w-[200px]">{{ book.title }}</p>
+                    <p class="font-medium truncate max-w-[240px]">{{ book.title }}</p>
                     <p class="text-xs text-muted truncate">{{ book.author ?? 'Unknown' }}</p>
                   </div>
                 </div>
@@ -203,18 +203,20 @@ async function logout() {
                     title="Reset AI enrichment"
                     @click="resetEnrichment(book.id)"
                   />
-                  <UButton
+                    <UButton
                     size="xs" variant="ghost" color="neutral"
                     icon="i-lucide-pencil"
                     title="Edit book"
+                      class="hover:bg-primary/10"
                     @click="openEdit(book)"
                   />
-                  <UButton
+                    <UButton
                     size="xs" variant="ghost"
                     :color="deleteConfirmId === book.id ? 'error' : 'neutral'"
                     :icon="deleteConfirmId === book.id ? 'i-lucide-check' : 'i-lucide-trash-2'"
                     :label="deleteConfirmId === book.id ? 'Confirm' : undefined"
                     :title="deleteConfirmId === book.id ? 'Click again to delete' : 'Delete book'"
+                      class="hover:bg-error/10"
                     @click="handleDelete(book.id)"
                   />
                 </div>

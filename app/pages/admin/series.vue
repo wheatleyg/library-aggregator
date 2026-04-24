@@ -167,8 +167,8 @@ async function addBookToSeries(book: BookEntry) {
 </script>
 
 <template>
-  <div class="min-h-screen admin-fazbear-bg">
-    <header class="border-b border-default bg-elevated px-6 py-4 flex items-center justify-between">
+  <div class="min-h-screen bg-default">
+    <header class="border-b border-default bg-elevated/95 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-30">
       <div class="flex items-center gap-3">
         <AppLogo class="h-6 w-auto" />
         <span class="text-sm font-semibold text-muted">Series Management</span>
@@ -191,10 +191,10 @@ async function addBookToSeries(book: BookEntry) {
         <div
           v-for="s in series"
           :key="s.id"
-          class="rounded-2xl border border-default bg-elevated overflow-hidden"
+          class="rounded-2xl border border-default bg-elevated overflow-hidden shadow-sm"
         >
           <!-- Series header row -->
-          <div class="flex items-center gap-4 px-5 py-4">
+          <div class="flex items-center gap-4 px-5 py-4 hover:bg-elevated/60 transition-colors">
             <img
               v-if="s.coverUrl"
               :src="s.coverUrl"
@@ -209,7 +209,7 @@ async function addBookToSeries(book: BookEntry) {
             </div>
 
             <div class="flex-1 min-w-0">
-              <p class="font-semibold">{{ s.name }}</p>
+              <p class="font-semibold text-base">{{ s.name }}</p>
               <p v-if="s.description" class="text-sm text-muted truncate">{{ s.description }}</p>
               <p class="text-xs text-muted mt-0.5">{{ s.bookCount }} book{{ s.bookCount !== 1 ? 's' : '' }}</p>
             </div>
@@ -233,13 +233,13 @@ async function addBookToSeries(book: BookEntry) {
           </div>
 
           <!-- Expanded: book list + add -->
-          <div v-if="expanded === s.id" class="border-t border-default">
+          <div v-if="expanded === s.id" class="border-t border-default bg-default/60">
             <!-- Existing books -->
             <div v-if="s.books.length">
               <div
                 v-for="book in s.books"
                 :key="book.id"
-                class="flex items-center gap-3 px-5 py-2.5 border-b border-default last:border-b-0 group"
+                class="flex items-center gap-3 px-5 py-2.5 border-b border-default last:border-b-0 group hover:bg-elevated/50 transition-colors"
               >
                 <!-- Order input -->
                 <div class="flex items-center gap-1 shrink-0">

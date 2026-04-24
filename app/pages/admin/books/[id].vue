@@ -203,9 +203,9 @@ const scorePercent = computed(() =>
 </script>
 
 <template>
-  <div class="min-h-screen admin-fazbear-bg">
+  <div class="min-h-screen bg-default">
     <!-- Admin header bar -->
-    <header class="border-b border-default bg-elevated px-6 py-4 flex items-center justify-between">
+    <header class="border-b border-default bg-elevated/95 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-30">
       <div class="flex items-center gap-2 text-sm text-muted">
         <UButton
           to="/admin"
@@ -294,11 +294,11 @@ const scorePercent = computed(() =>
           />
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-8">
+        <div class="flex flex-col sm:flex-row gap-8 rounded-2xl border border-default bg-elevated p-5 shadow-sm">
           <!-- Left: cover -->
           <div class="shrink-0 flex flex-col gap-4 items-start">
             <AdminImageUpload v-model="form.image" />
-            <div class="text-xs text-muted space-y-0.5">
+            <div class="text-xs text-muted space-y-0.5 rounded-xl border border-default bg-default px-3 py-2">
               <p><span class="font-medium">ID:</span> {{ bk.id }}</p>
               <p><span class="font-medium">Views:</span> {{ bk.viewCount }}</p>
             </div>
@@ -319,7 +319,7 @@ const scorePercent = computed(() =>
               <UInput v-model="form.author" placeholder="First Last" />
             </UFormField>
 
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <UFormField label="Call Number">
                 <UInput
                   v-model="form.callNumber"
@@ -332,7 +332,7 @@ const scorePercent = computed(() =>
               </UFormField>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <UFormField label="ISBN">
                 <UInput
                   v-model="form.isbn"
@@ -345,11 +345,11 @@ const scorePercent = computed(() =>
               </UFormField>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <UFormField label="Series">
                 <select
                   :value="form.seriesId ?? ''"
-                  class="w-full rounded-md border border-[var(--ui-border)] bg-[var(--ui-bg)] px-3 py-1.5 text-sm text-[var(--ui-text)] focus:outline-none focus:ring-2 focus:ring-[var(--ui-primary)]"
+                  class="w-full rounded-md border border-[var(--ui-border)] bg-[var(--ui-bg)] px-3 py-2 text-sm text-[var(--ui-text)] focus:outline-none focus:ring-2 focus:ring-[var(--ui-primary)]"
                   @change="form.seriesId = ($event.target as HTMLSelectElement).value === '' ? null : Number(($event.target as HTMLSelectElement).value)"
                 >
                   <option value="">None</option>
