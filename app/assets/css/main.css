@@ -78,3 +78,38 @@ a {
   background: color-mix(in srgb, var(--ui-bg-elevated) 92%, transparent);
   box-shadow: 0 4px 20px color-mix(in srgb, var(--ui-bg-inverted) 5%, transparent);
 }
+
+.admin-fazbear-bg {
+  background-color: #171717;
+  background-image:
+    linear-gradient(to right, rgba(231, 179, 76, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 179, 76, 0.08) 1px, transparent 1px),
+    repeating-linear-gradient(
+      0deg,
+      rgba(101, 30, 30, 0.3) 0 12px,
+      rgba(132, 41, 41, 0.3) 12px 24px
+    ),
+    radial-gradient(circle at 20% -10%, rgba(255, 213, 128, 0.18), transparent 35%),
+    radial-gradient(circle at 100% 0%, rgba(255, 98, 0, 0.12), transparent 30%);
+  background-size: 32px 32px, 32px 32px, auto, auto, auto;
+}
+
+.admin-fazbear-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.5)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0 2px,
+      transparent 2px 4px
+    );
+}
+
+.admin-fazbear-bg > * {
+  position: relative;
+  z-index: 1;
+}

@@ -24,7 +24,7 @@ async function login() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-default flex items-center justify-center px-4">
+  <div class="min-h-screen admin-fazbear-bg flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
       <div class="flex justify-center mb-6">
         <AppLogo class="h-10 w-auto" />

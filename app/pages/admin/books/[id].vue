@@ -203,7 +203,7 @@ const scorePercent = computed(() =>
 </script>
 
 <template>
-  <div class="min-h-screen bg-default">
+  <div class="min-h-screen admin-fazbear-bg">
     <!-- Admin header bar -->
     <header class="border-b border-default bg-elevated px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-2 text-sm text-muted">
