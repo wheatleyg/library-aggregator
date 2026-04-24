@@ -10,7 +10,7 @@ defineProps({
 <template>
   <NuxtLink
     :to="`/books/${id}`"
-    class="group flex flex-col items-center gap-2 rounded-2xl p-2 hover:bg-elevated/70 transition-colors"
+    class="group flex flex-col items-center gap-2 rounded-2xl p-2 hover:bg-elevated/70 hover:scale-[1.02] transition-all duration-200"
   >
     <div class="relative w-full overflow-hidden rounded-2xl border border-default shadow-sm group-hover:shadow-xl group-hover:-translate-y-0.5 transition-all duration-200">
       <NuxtImg

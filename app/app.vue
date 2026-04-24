@@ -61,7 +61,7 @@ useSeoMeta({
       </template>
 
       <template #right>
-        <div class="hidden md:flex items-center gap-1">
+        <div class="hidden md:flex lg:hidden items-center gap-1">
           <UButton to="/catalog" variant="ghost" color="neutral" size="sm" label="Catalog" />
           <UButton to="/series" variant="ghost" color="neutral" size="sm" label="Series" />
         </div>
